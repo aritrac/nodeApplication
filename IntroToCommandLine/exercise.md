@@ -1,6 +1,6 @@
 ##Command Line Basics Exercise
 
-*Make a new folder named "Animals"
+*Make a new folder named "Animals"  
 *$mkdir Animals
 
 *Inside of "Animals" add 2 directories: "AwesomeAnimals" and "SketchyAnimals" 
