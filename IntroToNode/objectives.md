@@ -9,4 +9,4 @@
 #Using Node
 
 * Interact with Node console  
-* Run a file with node  
+* Run a file with node  (node <filename>)
