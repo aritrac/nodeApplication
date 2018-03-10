@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 
 /*serving the CSS file which is in this folder*/
-app.use('/public',express.static('public'));
+app.use(express.static('public'));
 
 /*We dont have to supply view file extensions to be ejs anymore after this*/
 app.set("view engine","ejs");
