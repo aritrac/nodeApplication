@@ -1,0 +1,51 @@
+#Entering the mongo shell
+mongo
+
+#Seeing existing dbs
+show dbs
+
+#Using or creating a new db if it does not existing
+use mydatabase
+
+#After using database, do this to show collections in it
+show collections
+
+#Creating a collections
+db.dogs.insert({name:"Doberman",breed:"Rocky"});
+db.dogs.insert({name:"German Shepherd", breed: "Lucy"});
+
+#Showing the entire collections
+db.dogs.find()
+
+#Query a collection on an attribute value
+db.dogs.find({name: "Rusty"})
+db.dogs.find({breed: "Mutt"})
+
+#Updating a particular object in a collection
+db.dogs.update({name: "Lulu"},{breed:"Labradoodle"})
+
+#Updating a particular object with preserving existing attributes and setting only the ones mentioned
+db.dogs.update({name:"Rusty"},{$set: {name: "Tater", isCute: true}})
+
+#Deleting an object from a collection
+db.dogs.remove({breed: "Labradoodle"});
+
+#If Delete selects multiple objects for deletion, you can limit the number of deletions in the following way
+db.dogs.remove({breed:"Mutt"}).limit(1);
+
+Installing MongoDB 3.6+
+***********************
+1)Create a /etc/yum.repos.d/mongodb-org-3.6.repo file so that you can install MongoDB directly, using yum.
+2)Put the following in the above file
+    [mongodb-org-3.6]
+    name=MongoDB Repository
+    baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.6/x86_64/
+    gpgcheck=1
+    enabled=1
+    gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
+3)sudo yum install -y mongodb-org
+4)sudo service mongod start
+5)Get DB logs by tailing /var/log/mongodb/mongod.log
+6)Start mongo shell by typing mongo at the terminal
+***********************
+
