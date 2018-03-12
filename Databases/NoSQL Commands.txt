@@ -30,6 +30,9 @@ db.dogs.update({name:"Rusty"},{$set: {name: "Tater", isCute: true}})
 #Deleting an object from a collection
 db.dogs.remove({breed: "Labradoodle"});
 
+#Deleting an entire collection
+db.dogs.drop()
+
 #If Delete selects multiple objects for deletion, you can limit the number of deletions in the following way
 db.dogs.remove({breed:"Mutt"}).limit(1);
 
