@@ -6,15 +6,16 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.set("view engine","ejs");
 
 var campgrounds = [
-        {name: "Himalayan Routes Camp", image: "https://pixabay.com/get/eb30b00d21f0053ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "The Indus River Camp", image: "https://pixabay.com/get/eb3db30a29fd063ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "Tiger Camp Nubra", image: "https://pixabay.com/get/e833b3092cf5033ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "Himalayan Routes Camp", image: "https://pixabay.com/get/eb30b00d21f0053ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "The Indus River Camp", image: "https://pixabay.com/get/eb3db30a29fd063ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "Tiger Camp Nubra", image: "https://pixabay.com/get/e833b3092cf5033ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "Himalayan Routes Camp", image: "https://pixabay.com/get/eb30b00d21f0053ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "The Indus River Camp", image: "https://pixabay.com/get/eb3db30a29fd063ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"},
-        {name: "Tiger Camp Nubra", image: "https://pixabay.com/get/e833b3092cf5033ed95c4518b7444795ea76e5d004b0144395f7c47ca6ebbc_340.jpg"}
+        {name: "Himalayan Routes Camp", image: "https://pikwizard.com/photos/600c3fc340cea0fb460038c9af2993d7-s.jpg"},
+        {name: "The Indus River Camp", image: "https://pikwizard.com/photos/886ec82a538a0584410f482fd01f0ded-s.jpg"},
+        {name: "Tiger Camp Nubra", image: "https://pikwizard.com/photos/022034b3aa8c00428cb7c5c27e7513a1-s.jpg"},
+        {name: "Himalayan Routes Camp", image: "https://pikwizard.com/photos/4a807ee832c397b9b5dff1c2c76ec855-s.jpg"},
+        {name: "The Indus River Camp", image: "https://pikwizard.com/photos/4cdc775f876fcaed40c73234745c6f05-s.jpg"},
+        {name: "Himalayan Routes Camp", image: "https://pikwizard.com/photos/600c3fc340cea0fb460038c9af2993d7-s.jpg"},
+        {name: "The Indus River Camp", image: "https://pikwizard.com/photos/886ec82a538a0584410f482fd01f0ded-s.jpg"},
+        {name: "Tiger Camp Nubra", image: "https://pikwizard.com/photos/022034b3aa8c00428cb7c5c27e7513a1-s.jpg"},
+        {name: "Himalayan Routes Camp", image: "https://pikwizard.com/photos/4a807ee832c397b9b5dff1c2c76ec855-s.jpg"},
+        {name: "The Indus River Camp", image: "https://pikwizard.com/photos/4cdc775f876fcaed40c73234745c6f05-s.jpg"}
     ];
 
 app.get("/",function(req,res){
