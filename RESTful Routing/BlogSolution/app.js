@@ -1,7 +1,7 @@
-var express = require("express"),
-app         = express(),
-bodyParser  = require("body-parser"),
-mongoose    = require("mongoose");
+var express     = require("express");
+var app         = express();
+var bodyParser  = require("body-parser");
+var mongoose    = require("mongoose");
 
 //APP CONFIG
 mongoose.connect("mongodb://localhost/restful_blog_app");
