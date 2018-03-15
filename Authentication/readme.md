@@ -27,3 +27,7 @@
 * Add Login Routes  
 * Add Login Form  
 
+#Auth CodeAlong Part 5
+* Add Logout Route  
+* Add isLoggedIn middleware  
+
