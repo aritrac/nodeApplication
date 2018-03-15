@@ -26,6 +26,16 @@ app.get("/", function(req, res){
     res.redirect("/blogs");
 })
 
+app.get("/blogs",function(req, res){
+    Blog.find({}, function(err,blogs){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("index",{blogs : blogs});
+        }
+    });
+});
+
 //NEW ROUTE
 app.get("/blogs/new", function(req,res){
     res.render("new");
@@ -41,15 +51,15 @@ app.post("/blogs", function(req,res){
             res.redirect("/blogs");
         }
     });
-    
 });
 
-app.get("/blogs",function(req, res){
-    Blog.find({}, function(err,blogs){
+//SHOW ROUTE
+app.get("/blogs/:id",function(req,res){
+    Blog.findById(req.params.id,function(err, foundBlog){
         if(err){
-            console.log(err);
+            res.redirect("/blogs");
         }else{
-            res.render("index",{blogs : blogs});
+            res.render("show",{blog : foundBlog});
         }
     });
 });
