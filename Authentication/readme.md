@@ -23,3 +23,7 @@
 * Add Register routes  
 * Add Register form  
 
+#Auth CodeAlong Part 4  
+* Add Login Routes  
+* Add Login Form  
+
