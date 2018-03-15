@@ -2,35 +2,14 @@ var express    = require("express");
 var bodyParser = require("body-parser");
 var mongoose   = require("mongoose");
 var app        = express();
+var Campground = require("./models/campground");
+var seedDB     = require("./seeds");
 
-
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://localhost/yelp_camp_v3");
 app.use(bodyParser.urlencoded({extended : true}));
 app.set("view engine","ejs");
 
-// Schema Setup
-var campgroundSchema = new mongoose.Schema({
-   name: String,
-   image: String,
-   description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
-
-// Campground.create(
-//     {
-//         name: "The Indus River Camp", 
-//         image: "https://pikwizard.com/photos/886ec82a538a0584410f482fd01f0ded-s.jpg",
-//         description: "This is situated on the picturesque location of Punjab with mother nature at its best. A sight to behold!"
-        
-//     },function(err, campground){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             console.log("Newly Created Campground");
-//             console.log(campground);
-//         }
-//     });
+seedDB();
 
 app.get("/",function(req,res){
     res.render("landing");
@@ -76,10 +55,11 @@ app.get("/campgrounds/new", function(req,res){
 //SHOW - shows more info about one campground
 app.get("/campgrounds/:id",function(req,res){
     //find the campground with provided ID
-    Campground.findById(req.params.id, function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
         if(err){
             console.log(err);
         }else{
+            console.log(foundCampground);
             //render show template with that campground
             res.render("show", {campground : foundCampground});
         }
