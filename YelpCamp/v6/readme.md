@@ -82,6 +82,9 @@ CREATE      /campgrounds/:id/comments           POST
 * Add links to navbar  
 * Show/hide auth links correctly  
 
+##Auth Pt. 5 - Show/Hide Links  
+* Show/hide auth links in navbar correctly  
+
 
 
 
