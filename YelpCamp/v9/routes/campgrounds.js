@@ -7,7 +7,6 @@ var Campground      = require("../models/campground");
 // CAMPGROUND ROUTES
 // ===========================
 router.get("/",function(req,res){
-    console.log(req.user);
     //Get all campgrounds from DB
     Campground.find({},function(err,allCampgrounds){
        if(err){
@@ -24,11 +23,19 @@ router.post("/", isLoggedIn, function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
-    var newCampground = {
-        name: name, image: image, description: description
+    var author = {
+        id: req.user._id,
+        username: req.user.username
     };
+    var newCampground = {
+        name: name, 
+        image: image, 
+        description: description,
+        author: author
+    };
+    
     // Create a new campground and save to DB
-    Campground.create(newCampground, function(err,campground){
+    Campground.create(newCampground, function(err,newlyCreated){
         if(err){
             console.log(err);
         }else{
@@ -50,7 +57,6 @@ router.get("/:id",function(req,res){
         if(err){
             console.log(err);
         }else{
-            console.log(foundCampground);
             //render show template with that campground
             res.render("campgrounds/show", {campground : foundCampground});
         }
