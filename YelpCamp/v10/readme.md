@@ -123,6 +123,9 @@ CREATE      /campgrounds/:id/comments           POST
 * Add Destroy Route  
 * Add Delete button  
 
+Campground Destroy Route: /campgrounds/:id
+Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
+
 #Authorization Part 2: Comments  
 * User can only edit his/her comments  
 * User can only delete his/her comments  
