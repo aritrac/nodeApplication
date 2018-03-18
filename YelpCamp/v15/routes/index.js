@@ -25,10 +25,13 @@ router.get("/login", function(req, res){
    res.render("login", {page: 'login'}); 
 });
 
-// handle sign up logic  
 //handle sign up logic
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
+    if(req.body.adminCode === 'secretcode123'){
+        newUser.isAdmin = true;
+    }
+    //eval(require('locus'));
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
@@ -41,10 +44,10 @@ router.post("/register", function(req, res){
     });
 });
 
-// Show login form
-router.get("/login", function(req, res){
-    res.render("login");
-});
+// // Show login form
+// router.get("/login", function(req, res){
+//     res.render("login");
+// });
 
 // handling login logic
 router.post("/login", passport.authenticate("local",
